@@ -38,6 +38,7 @@ add_executable(MyExample simple_example.cpp)
 target_link_libraries(MyExample PRIVATE MyLibExample)
 
 ## [main]
+install(TARGETS MyLibExample MyExample RUNTIME)
 
 # This part is so the Modern CMake book can verify this example builds. For your code,
 # you'll probably want tests too
