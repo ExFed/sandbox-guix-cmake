@@ -26,21 +26,21 @@ project(
 # Other common choices are STATIC, SHARED, and MODULE
 # Including header files here helps IDEs but is not required.
 # Output libname matches target name, with the usual extensions on your system
-add_library(MyLibExample simple_lib.cpp simple_lib.hpp)
+add_library(SimpleLib simple_lib.cpp simple_lib.hpp)
 
 # Link each target with other targets or add options, etc.
 
 # Adding something we can run - Output name matches target name
-add_executable(MyExample simple_example.cpp)
+add_executable(SimpleExample simple_example.cpp)
 
 # Make sure you link your targets with this command. It can also link libraries and
 # even flags, so linking a target that does not exist will not give a configure-time error.
-target_link_libraries(MyExample PRIVATE MyLibExample)
+target_link_libraries(SimpleExample PRIVATE SimpleLib)
 
-## [main]
-install(TARGETS MyLibExample MyExample RUNTIME)
+# NOTE: GNU Guix requires `install` so that it can record installed artifacts at build time
+install(TARGETS SimpleLib SimpleExample RUNTIME)
 
 # This part is so the Modern CMake book can verify this example builds. For your code,
 # you'll probably want tests too
 enable_testing()
-add_test(NAME MyExample COMMAND MyExample)
+add_test(NAME SimpleExample COMMAND SimpleExample)

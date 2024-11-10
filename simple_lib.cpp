@@ -1,5 +1,5 @@
 #include <string>
 
 std::string simple_lib_function() {
-    return "Compiled in library";
+    return "Returned from Simple Lib.";
 }
